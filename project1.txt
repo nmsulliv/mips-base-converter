@@ -1,6 +1,7 @@
 .data
 
 	prompt: .asciiz "Enter a string of exactly 10 characters: "
+	str: .space 32 # saves space for 32 bytes
 
 .text
 .globl main
@@ -12,6 +13,8 @@ main:
 
 	#get the user input
 	li $v0, 8
+	la $a0, str
+	li $a1, 11 # number of characters I want to read from input 
 	syscall 
 
 	li $v0, 10 	# exit program
