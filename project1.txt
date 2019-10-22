@@ -1,13 +1,11 @@
 .data
 	#prompts the user to enter a string
 	prompt: .asciiz "Enter a string of exactly 10 characters"
-
-	#make space for 32 bytes
-	str:
-	.space 32
 .text
 
-Main:
+main:
+	li $v0, 4
+	la $a0, prompt
 
-	li $v0, 10
+	li $v0, 10 	#exit program
 	syscall
