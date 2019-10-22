@@ -1,11 +1,18 @@
 .data
-	#prompts the user to enter a string
-	prompt: .asciiz "Enter a string of exactly 10 characters"
+
+	prompt: .asciiz "Enter a string of exactly 10 characters: "
+
 .text
+.globl main
 
 main:
-	li $v0, 4
+	li $v0, 4 
 	la $a0, prompt
+	syscall
 
-	li $v0, 10 	#exit program
+	#get the user input
+	li $v0, 8
+	syscall 
+
+	li $v0, 10 	# exit program
 	syscall
