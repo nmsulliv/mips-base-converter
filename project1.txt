@@ -1,2 +1,7 @@
-# comp org project 1
-#testing 
+.data
+
+	prompt: .asciiz "Enter a string of exactly 10 characters"
+
+	str:
+	.space 32
+.text
