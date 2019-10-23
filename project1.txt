@@ -29,5 +29,10 @@ main:
 	la $a0, messagec
 	syscall
 	
+	li $v0, 11			#print out character of the string
+	la $a0, str
+	lb $a0, 0($a0)
+	syscall
+	
 	li $v0, 10 			# exit program
 	syscall
