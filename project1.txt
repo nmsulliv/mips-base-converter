@@ -3,6 +3,7 @@
 
 	prompt: .asciiz "Enter a string of exactly 10 characters: "
 	message: .asciiz "\nInput: "
+	messagec: .asciiz "\nChar: "
 	str: .space 32 # saves space for 32 bytes
 
 .text
@@ -34,5 +35,9 @@ main:
 	lb $a0, 0($a0)
 	syscall
 	
-	li $v0, 10 			# exit program
-	syscall
+	addi $t0, $zero, 0
+	addi $t1, $zero, 10
+	
+	EXIT:
+		li $v0, 10 			# exit program
+		syscall
