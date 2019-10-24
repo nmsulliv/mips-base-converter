@@ -9,24 +9,25 @@
 .text
 
 main:
-	li $v0, 4 				#prompts the instructions to the user 
+	li $v0, 4 					#prompts the instructions to the user 
 	la $a0, prompt
 	syscall
 
-	li $v0, 8				#get the number of characters to read from input 
+	li $v0, 8					#get the number of characters to read from input 
 	la $a0, str
 	li $a1, 11 			
 	syscall 
 	
-	addi $t0, $zero, 0		#initialize variables for while loop
-	addi $t1, $zero, 10
+	addi $t0, $zero, 0			#initialize counter for the loop
+	la $s0, str					#load the string into $s0
 	
-	while:					#loop for each char of the string
-		beq $t0, $t1, EXIT
-		addi $t0, $t0, 1
+	get_char:					#loop for each char of the string
+		beq $t0, 10, exit		#condition to check if it is the end of the string
 		
-		j while
+		addi $t0, $t0, 1		#increments the loop counter by one
+		
+		j get_char
 	
-	EXIT:
+	exit:
 		li $v0, 10 			# exit program
 		syscall
