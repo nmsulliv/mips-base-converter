@@ -18,23 +18,6 @@ main:
 	li $a1, 11 			
 	syscall 
 	
-	li $v0, 4				#print out message
-	la $a0, message
-	syscall
-	
-	li $v0, 4				#print out input
-	la $a0, str
-	syscall
-	
-	li $v0, 4				#print out char message
-	la $a0, messagec
-	syscall
-	
-	li $v0, 11				#print out character of the string
-	la $a0, str
-	lb $a0, 0($a0)
-	syscall
-	
 	addi $t0, $zero, 0		#initialize variables for while loop
 	addi $t1, $zero, 10
 	
