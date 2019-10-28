@@ -28,6 +28,13 @@ main:
 		addi $s0, $s0, 1		#increments address of the array by one for the next char
 		addi $t0, $t0, 1		#increments the loop counter by one
 		
+		convert_char:
+		ble $t2, 57, check_num_greater 
+
+		check_num_greater:
+			bge $t2, 48, convert_num_char	#if num is in range, convert num 
+			j exit
+			
 	j get_char
 
 	exit:
