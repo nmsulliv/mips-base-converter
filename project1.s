@@ -35,6 +35,8 @@ main:
 		ble $t2, 84, check_upcase_greater 
 		ble $t2, 96, check_tmidrange_greater 
 		ble $t2, 116, check_locase_greater
+		ble $t2, 127, check_hirange_greater
+
 
 		check_num_greater:
 			bge $t2, 48, convert_num_char	#if num is in range, convert num 
@@ -55,6 +57,9 @@ main:
 		check_tmidrange_greater:
 			bge $t2, 85, convert_out_range	#if out of range, make 0
 			
+		check_hirange_greater:
+			bge $t2, 117, convert_out_range #if out of range, make 0
+			
 		convert_num_char:
 			addi $t2, $t2, -48 		#subtract 48 to get the true value
 			j add_char
@@ -71,19 +76,18 @@ main:
 			move $t2, $zero 		#make range 0
 			j add_char
 
-		add_char:
+		add_char:					#adds the true value of the char to the total 
 			add $s1, $s1, $t2
-	
 			j get_char
 
 	j get_char
 
 	exit:
-		li $v0, 4				#prints output
+		li $v0, 4				#prints message for output
 		la $a0, output
 		syscall
 
-		li $v0, 1				#for debugging
+		li $v0, 1				#prints the final total
 		move $a0, $s1
 		syscall
 			
