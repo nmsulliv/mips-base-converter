@@ -11,3 +11,8 @@ main:
 	li $v0, 4 					#prompts the instructions to the user 
 	la $a0, prompt
 	syscall
+	
+	
+	exit:
+		li $v0, 10 				# exit program
+		syscall
