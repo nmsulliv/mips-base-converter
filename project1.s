@@ -44,22 +44,27 @@ main:
 			
 		check_upcase_greater:
 			bge $t2, 65, convert_upper_char	#if upcase is in range, convert char
+			j exit
 
 		check_locase_greater:
 			bge $t2, 97, convert_lower_char	#if locase is in range, convert char 
+			j exit
 
 		check_lorange_greater:
 			bge $t2, 0, convert_out_range	#if out of range, make 0
-		
+			j exit
+
 		check_midrange_greater:
 			bge $t2, 58, convert_out_range	#if out of range, make 0
+			j exit
 
 		check_tmidrange_greater:
 			bge $t2, 85, convert_out_range	#if out of range, make 0
-			
+			j exit
+
 		check_hirange_greater:
 			bge $t2, 117, convert_out_range #if out of range, make 0
-			
+
 		convert_num_char:
 			addi $t2, $t2, -48 		#subtract 48 to get the true value
 			j add_char
