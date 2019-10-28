@@ -36,9 +36,13 @@ main:
 			j exit
 			
 		convert_num_char:
-			addi $t2, $t2, -48 			#subtract 48 to get the true value
+			addi $t2, $t2, -48 		#subtract 48 to get the true value
 			j add_char
 			
+		add_char:
+			add $s1, $s1, $t2
+			j get_char
+
 	j get_char
 
 	exit:
