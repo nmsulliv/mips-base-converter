@@ -29,9 +29,9 @@ main:
 		addi $t0, $t0, 1			#increments the loop counter by one
 		
 		convert_char:
-		ble $t2, 57, check_num_greater 
+		ble $t2, 57, check_num_greater #if the char is le, check to see if it is in range
 		ble $t2, 84, check_upcase_greater 
-
+		ble $t2, 116, check_locase_greater
 
 		check_num_greater:
 			bge $t2, 48, convert_num_char	#if num is in range, convert num 
@@ -40,12 +40,19 @@ main:
 		check_upcase_greater:
 			bge $t2, 65, convert_upper_char	#if upcase is in range, convert char
 
+		check_locase_greater:
+			bge $t2, 97, convert_lower_char	#if locase is in range, convert char 
+
 		convert_num_char:
 			addi $t2, $t2, -48 		#subtract 48 to get the true value
 			j add_char
 			
 		convert_upper_char:
 			addi $t2, $t2, -55		#subtract 55 to get the true value
+			j add_char
+			
+		convert_lower_char:
+			addi $t2, $t2, -87 	#subtract 55 to get the true value
 			j add_char
 
 		add_char:
