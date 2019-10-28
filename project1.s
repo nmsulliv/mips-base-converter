@@ -2,7 +2,7 @@
 .data
 
 	prompt: .asciiz "Input: "
-	message: .asciiz "\nOutput: "
+	output: .asciiz "\nOutput: "
 	str: .space 32 # saves space for 32 bytes
 
 .text
@@ -56,6 +56,10 @@ main:
 	j get_char
 
 	exit:
+		li $v0, 4				#prints output
+		la $a0, output
+		syscall
+
 		li $v0, 1				#for debugging
 		move $a0, $s1
 		syscall
