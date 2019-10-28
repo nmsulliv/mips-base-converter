@@ -19,7 +19,7 @@ main:
 
 	addi $t0, $zero, 0				#initialize counter for the loop
 	la $s0, str					#load the string into $s0
-	
+		
 	get_char:					#loop for each char of the string
 		beq $t0, 10, exit			#condition to check if it is the end of the string
 		
@@ -64,6 +64,7 @@ main:
 
 		check_hirange_greater:
 			bge $t2, 117, convert_out_range #if out of range, make 0
+			j exit
 
 		convert_num_char:
 			addi $t2, $t2, -48 		#subtract 48 to get the true value
