@@ -40,13 +40,20 @@ main:
 		check_upcase_greater:
 			bge $t2, 64, convert_upper_char	#if upcase is in range, convert char
 
-			
 		convert_num_char:
 			addi $t2, $t2, -48 		#subtract 48 to get the true value
 			j add_char
 			
+		convert_upper_char:
+			addi $t2, $t2, -55		#subtract 55 to get the true value
+			j add_char
+
 		add_char:
 			add $s1, $s1, $t2
+			
+			li $v0, 1			
+			la $a0, $s1
+	
 			j get_char
 
 	j get_char
