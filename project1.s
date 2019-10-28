@@ -25,6 +25,11 @@ main:
 		
 		lb $t2, 0($s0)			#loads a character into $t2
 		
+		addi $s0, $s0, 1		#increments address of the array by one for the next char
+		addi $t0, $t0, 1		#increments the loop counter by one
+		
+	j get_char
+
 	exit:
 		li $v0, 10 				# exit program
 		syscall
