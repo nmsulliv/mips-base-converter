@@ -30,10 +30,16 @@ main:
 		
 		convert_char:
 		ble $t2, 57, check_num_greater 
+		ble $t2, 84, check_upcase_greater 
+
 
 		check_num_greater:
 			bge $t2, 48, convert_num_char	#if num is in range, convert num 
 			j exit
+			
+		check_upcase_greater:
+			bge $t2, 64, convert_upper_char	#if upcase is in range, convert char
+
 			
 		convert_num_char:
 			addi $t2, $t2, -48 		#subtract 48 to get the true value
