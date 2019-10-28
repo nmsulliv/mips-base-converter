@@ -35,6 +35,10 @@ main:
 			bge $t2, 48, convert_num_char	#if num is in range, convert num 
 			j exit
 			
+		convert_num_char:
+			addi $t2, $t2, -48 	#subtract 48 to get the true value
+			j add_char
+			
 	j get_char
 
 	exit:
