@@ -38,7 +38,7 @@ main:
 			j exit
 			
 		check_upcase_greater:
-			bge $t2, 64, convert_upper_char	#if upcase is in range, convert char
+			bge $t2, 65, convert_upper_char	#if upcase is in range, convert char
 
 		convert_num_char:
 			addi $t2, $t2, -48 		#subtract 48 to get the true value
@@ -50,15 +50,15 @@ main:
 
 		add_char:
 			add $s1, $s1, $t2
-			
-			li $v0, 1				#for debugging
-			la $a0, $s1
-			syscall
 	
 			j get_char
 
 	j get_char
 
 	exit:
+		li $v0, 1				#for debugging
+		move $a0, $s1
+		syscall
+			
 		li $v0, 10 				# exit program
 		syscall
