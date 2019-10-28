@@ -33,6 +33,7 @@ main:
 		ble $t2, 57, check_num_greater 
 		ble $t2, 64, check_midrange_greater
 		ble $t2, 84, check_upcase_greater 
+		ble $t2, 96, check_tmidrange_greater 
 		ble $t2, 116, check_locase_greater
 
 		check_num_greater:
@@ -50,6 +51,9 @@ main:
 		
 		check_midrange_greater:
 			bge $t2, 58, convert_out_range	#if out of range, make 0
+
+		check_tmidrange_greater:
+			bge $t2, 85, convert_out_range	#if out of range, make 0
 			
 		convert_num_char:
 			addi $t2, $t2, -48 		#subtract 48 to get the true value
