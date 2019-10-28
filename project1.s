@@ -21,12 +21,12 @@ main:
 	la $s0, str					#load the string into $s0
 	
 	get_char:					#loop for each char of the string
-		beq $t0, 10, exit		#condition to check if it is the end of the string
+		beq $t0, 10, exit			#condition to check if it is the end of the string
 		
-		lb $t2, 0($s0)			#loads a character into $t2
+		lb $t2, 0($s0)				#loads a character into $t2
 		
-		addi $s0, $s0, 1		#increments address of the array by one for the next char
-		addi $t0, $t0, 1		#increments the loop counter by one
+		addi $s0, $s0, 1			#increments address of the array by one for the next char
+		addi $t0, $t0, 1			#increments the loop counter by one
 		
 		convert_char:
 		ble $t2, 57, check_num_greater 
@@ -36,7 +36,7 @@ main:
 			j exit
 			
 		convert_num_char:
-			addi $t2, $t2, -48 	#subtract 48 to get the true value
+			addi $t2, $t2, -48 			#subtract 48 to get the true value
 			j add_char
 			
 	j get_char
