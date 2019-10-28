@@ -51,8 +51,9 @@ main:
 		add_char:
 			add $s1, $s1, $t2
 			
-			li $v0, 1			
+			li $v0, 1				#for debugging
 			la $a0, $s1
+			syscall
 	
 			j get_char
 
