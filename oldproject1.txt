@@ -1,3 +1,6 @@
+#######I originally made this file .txt, but the realized I needed a .s file.
+#######The only reason I am not deleting this is to keep docmentation of my progress
+#######The working project is project1.s
 .globl main
 .data
 
