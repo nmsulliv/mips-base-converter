@@ -1,3 +1,7 @@
+# calculation for base 
+#02894357 % 11 = 4
+#base: 26 + 4 = 30, β is 't' and Δ is 'T
+
 .globl main
 .data
 
