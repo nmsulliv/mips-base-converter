@@ -1,17 +1,12 @@
 .globl main
 .data
 
-	prompt: .asciiz "Input: "
-	output: .asciiz "\nOutput: "
+	output: .asciiz "\n"
 	str: .space 32 # saves space for 32 bytes
 
 .text
 
 main:
-	li $v0, 4 					#prompts the instructions to the user 
-	la $a0, prompt
-	syscall
-	
 	li $v0, 8					#get the number of characters to read from input 
 	la $a0, str
 	li $a1, 11 			
@@ -89,7 +84,7 @@ main:
 	j get_char
 
 	exit:
-		li $v0, 4				#prints message for output
+		li $v0, 4				#prints line break for output
 		la $a0, output
 		syscall
 
